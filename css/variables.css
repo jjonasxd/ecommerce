@@ -1,0 +1,20 @@
+:root {
+  /* Cores Principais (Brand) */
+  --color-primary: #008060;       /* O clássico verde Shopify, focado em sucesso/conversão */
+  --color-primary-dark: #004b36;  /* Um verde mais escuro para estados de hover */
+  --color-primary-light: #f4f6f8; /* Fundo acinzentado claro e limpo para seções */
+
+  /* Cores de Texto e Superfície (Neutras) */
+  --color-background: #ffffff;    /* Fundo principal limpo */
+  --color-text-main: #202223;     /* Quase preto (charcoal) para excelente legibilidade */
+  --color-text-muted: #6d7175;    /* Cinza intermediário para textos secundários ou placeholders */
+  
+  /* Bordas e Divisores */
+  --color-border: #e1e3e5;        /* Cinza bem claro para linhas finas e bordas de cards */
+
+  /* Cores de Feedback / Ação */
+  --color-accent: #005c45;        /* Links ou destaques secundários */
+  --color-success: #108043;       /* Sucesso (confirmação de compra, checkouts) */
+  --color-warning: #c99300;       /* Alertas ou atenção */
+  --color-danger: #d43f3a;        /* Erros ou cancelamentos */
+}

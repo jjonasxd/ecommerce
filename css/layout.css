@@ -1,0 +1,90 @@
+header {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    gap: 10px;
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.logo svg {
+    width: 45px;
+    height: 45px;
+    transition: ease-out 0.2s;
+}
+
+.logo svg:hover {
+    transform: scale(1.1);
+}
+
+.btn-menu {
+    margin-right: 50px;
+    transition: ease-in-out 0.1s;
+}
+
+.btn-menu:hover {
+    transform: scale(1.2);
+}
+
+.btn-menu:active {
+    transform: scale(1.1);
+}
+
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary-dark);
+    flex-direction: column;
+    color: white;
+    height: 300px;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+.title h1 {
+    font-size: 50px;
+}
+
+.btn-buttons {
+    display: flex;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.btn-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    width: 130px;
+    border-radius: 40px;
+    background-color: black;
+    color: var(--color-primary-light);
+    font-weight: 700;
+    transition: ease-in-out 0.15s;
+    gap: 5px;
+}
+
+.btn-buttons a:hover {
+    transform: translateY(-5px);
+}
+
+.btn-buttons a:active {
+    transform: scale(0.98)
+}
+
+.btn-buttons svg {
+    height: 20px;
+    width: 20px;
+}
