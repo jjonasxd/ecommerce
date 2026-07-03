@@ -1,4 +1,3 @@
-```markdown
 # 🛒 E-Commerce Project
 
 Este é um projeto de e-commerce simplificado desenvolvido com o objetivo principal de testar e consolidar minhas habilidades em desenvolvimento web full-stack, abrangendo desde a estruturação e estilização do front-end até a lógica de rotas e persistência básica no back-end.
