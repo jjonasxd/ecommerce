@@ -1,0 +1,6 @@
+# Variaveis de ambiente
+.env
+.env.local
+
+#Senha do git
+gitchave.txt
