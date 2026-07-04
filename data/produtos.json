@@ -1,0 +1,14 @@
+[
+    {
+        "id": "0",
+        "name": "batedeira eletrica",
+        "img": "https://m.media-amazon.com/images/I/41fw5SAXt-L._AC_US100_.jpg",
+        "price": "79,90"
+    },
+    {
+        "id": "1",
+        "name": "ventilador",
+        "img": "https://m.media-amazon.com/images/I/41Ye1x-V5iL._AC_US100_.jpg",
+        "price": "105,32"
+    }
+]

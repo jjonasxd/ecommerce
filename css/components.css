@@ -4,7 +4,7 @@
     gap: 10px;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-primary-light);
+    background-color: white;
     margin: 50px auto;
     padding: 40px;
     margin-left: 5vw;
@@ -21,4 +21,132 @@
 
 .github-logo :hover {
     transform: translateY(-3px);
+}
+
+.buy-me-coffee {
+    background-color: var(--color-background);
+    padding: 4px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px #0000007d;
+    transition: ease-in-out 0.16s;
+}
+
+.buy-me-coffee button {
+    height: 50px;
+    width: 50px;
+}
+
+.buy-me-coffee:hover {
+    transform: scale(1.1);
+}
+.buy-me-coffee:active {
+    transform: scale(1.07);
+}
+
+.coffee-container {
+    display: none;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background: var(--color-background);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 7px 7px 15px #0000005d;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.coffee-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 25px;
+    width: 100%;
+    background: black;
+    font-weight: 400;
+    transition: ease-in-out 0.2s;
+    color: var(--color-warning);
+}
+
+.coffee-container a:hover {
+    transform: translateY(-3px);
+}
+
+.coffee-container img {
+    width: 270px;
+    height: 270px;
+    border-radius: 20px;
+}
+.coffee-out {
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: none;
+    z-index: -1;
+}
+
+.menu {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    padding: 50px;
+    gap: 30px;
+    background: var(--color-text-main);
+    width: 220px;
+    transition: ease-in-out 0.45s;
+    transform: translateX(230px);
+    z-index: 50;
+}
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px
+}
+
+.menu-content a{
+    transition: ease-in-out 0.1s;
+}
+
+.menu-content a:hover {
+    transform: translateY(-3px)
+}
+
+.divd {
+    height: 0.8px;
+    width: 100%;
+    background: var(--color-background);
+}
+
+.menu-blur {
+    content: "";
+    transition: ease-in-out 0.45s;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+}
+
+.coffee-blur {
+    content: "";
+    transition: ease-in-out 0.05s;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
 }

@@ -15,6 +15,6 @@
   /* Cores de Feedback / Ação */
   --color-accent: #005c45;        /* Links ou destaques secundários */
   --color-success: #108043;       /* Sucesso (confirmação de compra, checkouts) */
-  --color-warning: #c99300;       /* Alertas ou atenção */
+  --color-warning: #ffd814;       /* Alertas ou atenção */
   --color-danger: #d43f3a;        /* Erros ou cancelamentos */
 }

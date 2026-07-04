@@ -90,6 +90,44 @@ header {
     width: 20px;
 }
 
+footer {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    background-color: black;
+    gap: 10rem;
+    color: white;
+    padding: 60px;
+    padding-bottom: 90px;
+}
+
+footer h4 {
+   font-weight: 900;
+   font-size: 17px;
+}
+
+.footer-about, .footer-nav, .footer-contact, .footer-social {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    transition: ease-in-out 1s;
+}
+
+.footer-nav a:hover, .footer-social a:hover {
+    transform: translateY(-1px);
+}
+
+.direitos {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-text-main);
+    width: 100%;
+    height: 4rem;
+    bottom: 0%;
+}
+
 @media screen and (max-width: 768px) {
     .btn-buttons {
         flex-direction: column;
@@ -98,5 +136,11 @@ header {
     }
     .btn-buttons a {
         width: 100%;
+    }
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 3rem;
     }
 }

@@ -1,0 +1,12 @@
+form {
+    display: flex;
+    background: var(--color-background);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px auto;
+    padding: 50px;
+    border-radius: 30px;
+    width: fit-content;
+}
+/*Terminar amanha*/
