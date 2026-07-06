@@ -1,12 +1,79 @@
-form {
-    display: flex;
-    background: var(--color-background);
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 100px auto;
-    padding: 50px;
-    border-radius: 30px;
-    width: fit-content;
+body { /*Usei ia nesse componente*/
+    background: var(--color-primary-light);
+    background-image: radial-gradient(#d1d1d1 10%, transparent 11%);
+    background-size: 16px 16px;
 }
-/*Terminar amanha*/
+
+.form-container {
+    display: flex;
+    position: relative;
+    background: var(--color-background);
+    align-items: center;
+    margin: 30px auto;
+    border-radius: 30px;
+    width: 620px;
+    height: 500px;
+    padding-right: 50px;
+    gap: 50px;
+    box-shadow: 4px 4px 15px #00000030;
+    transition: ease-in-out 0.2s;
+    margin-top: 55px;
+}
+
+.form-container h1 {
+    position: absolute;
+    top: 40px;
+}
+
+.form-container img {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    height: 100%;
+}
+
+.form-content {
+    display: flex;
+    margin-top: 60px;
+    flex-direction: column;
+}
+.form-content div {
+    margin-top: 20px;
+}
+
+.remember {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 15px;
+}
+
+.form-content p {
+    color: black;
+}
+
+.form-content p a {
+    color: var(--color-text-main);
+}
+
+.form-button {
+    display: flex;
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+    color: var(--color-background);
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.2s;
+}
+
+.form-button:hover {
+    transform: translateY(-3px);
+}
+
+.form-button:active {
+    transform: scale(0.98);
+}
+.form-button:hover {
+    transform: translateY(-3px);
+}

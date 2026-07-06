@@ -150,3 +150,10 @@
     height: 100vh;
     z-index: -10;
 }
+
+.login-input {
+    background: var(--color-background);
+    padding: 10px;
+    box-shadow: 0px 0px 0px 1.5px var(--color-text-muted);
+    border-radius: 5px;
+}

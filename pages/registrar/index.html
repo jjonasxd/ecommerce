@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registrar | E-commerce</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/pages/login.css">
+    <link rel="stylesheet" href="/css/pages/register.css">
 </head>
 <body>
     <header>
@@ -27,11 +28,16 @@
     </header>
 
     <main>
-        <form class="form-container" id="form-login">
+        <form class="form-container" id="form-register">
             <img src="/assets/img/login_banner.png" alt="Banner Login">
             
             <div class="form-content">
-                <h1>Login</h1>
+                <h1>Registrar</h1>
+                <div>
+                    <label>Nome de Usuario</label>
+                    <input type="text" name="name" id="name" placeholder="Seu nome" class="login-input">
+                </div>
+
                 <div>
                     <label>Email</label>
                     <input type="email" name="email" id="email" placeholder="seu@email.com" class="login-input">
@@ -47,11 +53,11 @@
                 </div>
 
                 <div>
-                    <p>Novo Usuario? <strong><a href="/pages/registrar">Registrar</a></strong></p>
+                    <p>Já tem login? <strong><a href="/pages/login/">Login</a></strong></p>
                 </div>
 
                 <div>
-                    <button type="submit" class="form-button">Login</button>
+                    <button type="submit" class="form-button">Registrar</button>
                 </div>
             </div>
         </form>
@@ -71,6 +77,16 @@
         </div>
     </nav>
     <div class="menu-blur" id="menu-blur"></div>
+
+    <div class="codigo-container">
+        <h1>Verifique seu email</h1>
+        <p>Codigo de 6 digitos enviado para <span id="email-cortado">********@gmail.com</span>
+             por favor verifique sua caixa de email.</p>
+
+        <input placeholder="X X X X X X" maxlength="6" name="1" id="codigo-input">
+        <button class="form-button" id="codigo-button">Enviar</button>
+        <button class="form-button">Resend</button>
+    </div>
 
 
     <footer>
@@ -106,6 +122,6 @@
             <p>Copyright © 2026 - Todos os direitos reservados.</p>
     </div>
     <script type="module" src="/js/main.js"></script>
-    <script type="module" src="/api/login/login.js"></script>
+    <script type="module" src="/api/register/register.js"></script>
 </body>
 </html>
