@@ -1,0 +1,88 @@
+.all-profile {
+    display: flex;
+    gap: 20px;
+    margin: 30px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.header-profile {
+    display: flex;
+    bottom: -1.5em;
+    left: 1.2em;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 80px;
+    height: 80px;
+    background-color: orange;
+    border-radius: 50%;
+    display: flex;
+}
+
+.profile-banner {
+    content: "";
+    position: relative;
+    background-color: blue;
+    width: 230px;
+    height: 110px;
+    border-radius: 20px;
+}
+
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-top: 30px;
+    gap: 4px;
+}
+.profile-name {
+    font-size: 30px;
+    font-family: 'Ubuntu', sans-serif;
+}
+.profile-bio {
+    font-size: 14px;
+    font-weight: 100;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background);
+    gap: 30px;
+    padding: 10px;
+}
+
+.profile-menu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    color: #000;
+    font-weight: 600;
+    box-shadow: 2px 2px 3px #0000001b;
+}
+
+.links-content {
+    display: flex;
+    background-color: var(--color-background);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.103);
+    margin: 10px;
+    width: 100%;
+    align-self: stretch;
+}

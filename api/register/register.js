@@ -53,7 +53,12 @@ btn_reenviar.addEventListener('click', async function() {
         })
         const dados = await resposta.json()
 
-        alert(dados['status'])
+        if (dados['value']) {
+            window.location.href = '/pages/perfil'
+        } else {
+            alert('Algo deu errado 500')
+            console.error(dados['status'])
+        }
     } catch (e) {
         console.error(e)
     }
