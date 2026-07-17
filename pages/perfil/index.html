@@ -7,6 +7,7 @@
     <title>Página inicial | E-commerce</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/pages/perfil.css">
+    <link rel="stylesheet" href="/css/pages/login.css">
 </head>
 
 <body>
@@ -71,56 +72,102 @@
         </nav>
     </div>
 
-    <main>
-        <div class="all-profile">
-            <aside class="profile-menu">
-                <a href="#profile">Profile</a>
-                <a href="/pages/carrinho">Carrinho</a>
-                <a href="#historico">Historicos de Compras</a>
-                <a href="#seguranca">Segurança</a>
-                <a href="#enderecos">Endereços e Pagamento</a>
-                <a href="#configuracoes">Settings</a>
-            </aside>
-            <div class="links-content" id="profile">
-                <h1>Profile</h1>
-                <p>Generencie seu perfil para todos</p>
-                <div class="perfil-link-total">
-                    <input type="file" id="foto-de-perfil" accept="image/*">
-                    <div class="perfil-link">
-                        JG
-                    </div>
-                    <p>Alterar foto de perfil</p>
-                </div>
+    <main class="wrapper">
+        <div class="container">
+            <button class="config" id="config-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                        d="M195.1 9.5C198.1-5.3 211.2-16 226.4-16l59.8 0c15.2 0 28.3 10.7 31.3 25.5L332 79.5c14.1 6 27.3 13.7 39.3 22.8l67.8-22.5c14.4-4.8 30.2 1.2 37.8 14.4l29.9 51.8c7.6 13.2 4.9 29.8-6.5 39.9L447 233.3c.9 7.4 1.3 15 1.3 22.7s-.5 15.3-1.3 22.7l53.4 47.5c11.4 10.1 14 26.8 6.5 39.9l-29.9 51.8c-7.6 13.1-23.4 19.2-37.8 14.4l-67.8-22.5c-12.1 9.1-25.3 16.7-39.3 22.8l-14.4 69.9c-3.1 14.9-16.2 25.5-31.3 25.5l-59.8 0c-15.2 0-28.3-10.7-31.3-25.5l-14.4-69.9c-14.1-6-27.2-13.7-39.3-22.8L73.5 432.3c-14.4 4.8-30.2-1.2-37.8-14.4L5.8 366.1c-7.6-13.2-4.9-29.8 6.5-39.9l53.4-47.5c-.9-7.4-1.3-15-1.3-22.7s.5-15.3 1.3-22.7L12.3 185.8c-11.4-10.1-14-26.8-6.5-39.9L35.7 94.1c7.6-13.2 23.4-19.2 37.8-14.4l67.8 22.5c12.1-9.1 25.3-16.7 39.3-22.8L195.1 9.5zM256.3 336a80 80 0 1 0 -.6-160 80 80 0 1 0 .6 160z" />
+                </svg>
+            </button>
+
+            <div class="container-config" id="config-container">
+                <h2>Configurações</h2>
+                <p>Você pode mudar as configurações do seu perfil</p>
+                <form id="safezone" class="safezone">
+                    <h3>Perfil</h3>
+                    <label>Alterar foto de perfil</label>
+                    <input type="file" name="foto" accept="image/*" class="input-hidden">
+
+                    <label>Alterar banner</label>
+                    <input type="file" name="banner" accept="image/*">
+
+                    <label>Alterar bio</label>
+                    <input type="text" name="bio">
+
+                    <button type="submit">Enviar</button>
+                </form>
+                <form id="dangerzone" class="dangerzone">
+                    <h3>Zona perigosa</h3>
+                    <label>Mudar senha</label>
+                    <a href="/pages/esqueci_senha">Trocar de senha</a>
+
+                    <label>Excluir Conta</label>
+                    <p>Digite: "EXCLUIR MINHA CONTA"</p>
+
+                    <input type="text">
+                    <button type="submit">Enviar</button>
+                </form>
             </div>
-            <div class="profile">
-                <div class="profile-banner">
-                    <div class="header-profile">
-                        <div class="perfil-profile">
-                            JG
-                        </div>
+            <div class="blur"></div>
+            <div class="image">
+                <img src="images/sla.jpg" alt="JG">
+            </div>
+
+            <div class="name">
+                <h1>João Agustinetto</h1>
+                <p>Comprador</p>
+            </div>
+
+            <aside class="buttons">
+                <div>
+                    <button class="pills">Favoritos</button>
+                </div>
+                <div>
+                    <button class="pills">Wish-list</button>
+                </div>
+                <div>
+                    <button class="pills">Amizades</button>
+                </div>
+            </aside>
+
+            <aside class="avaliation">
+                <div>
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path
+                                d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z" />
+                        </svg>
+                        <h4>0</h4>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                        <path
-                            d="M80 0C44.7 0 16 28.7 16 64l0 384c0 35.3 28.7 64 64 64l224 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L80 0zm72 416l80 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z" />
-                    </svg>
+                    <p>Nivel</p>
                 </div>
-                <div class="profile-body">
-                    <h3 class="profile-name">Usuario X</h3>
-                    <p class="profile-bio">Minha bio super interessanssste</p>
-
-                    <div class="divisoria"></div>
-
-                    <h3>Nascimento</h3>
-                    <p class="profile-bio">15/07/2026</p>
-
-                    <div class="divisoria"></div>
-
-                    <h3>Infomações Pessoais</h3>
-                    <p class="profile-email"><em>emseu@gmail.com</em></p>
-                    <p>*******</p>
-
-                    <a href="#profile" class="btn-profile">Ir para Profile</a>
+                <div class="divsioria"></div>
+                <div>
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path
+                                d="M320.3 192L235.7 51.1C229.2 40.3 215.6 36.4 204.4 42L117.8 85.3C105.9 91.2 101.1 105.6 107 117.5L176.6 256.6C146.5 290.5 128.3 335.1 128.3 384C128.3 490 214.3 576 320.3 576C426.3 576 512.3 490 512.3 384C512.3 335.1 494 290.5 464 256.6L533.6 117.5C539.5 105.6 534.7 91.2 522.9 85.3L436.2 41.9C425 36.3 411.3 40.3 404.9 51L320.3 192zM351.1 334.5C352.5 337.3 355.1 339.2 358.1 339.6L408.2 346.9C415.9 348 418.9 357.4 413.4 362.9L377.1 398.3C374.9 400.5 373.9 403.5 374.4 406.6L383 456.5C384.3 464.1 376.3 470 369.4 466.4L324.6 442.8C321.9 441.4 318.6 441.4 315.9 442.8L271.1 466.4C264.2 470 256.2 464.2 257.5 456.5L266.1 406.6C266.6 403.6 265.6 400.5 263.4 398.3L227.1 362.9C221.5 357.5 224.6 348.1 232.3 346.9L282.4 339.6C285.4 339.2 288.1 337.2 289.4 334.5L311.8 289.1C315.2 282.1 325.1 282.1 328.6 289.1L351 334.5z" />
+                        </svg>
+                        <h4>0</h4>
+                    </div>
+                    <p>Compras</p> <!-- Pode ser produtos caso seja vendedor-->
                 </div>
+                <div class="divsioria"></div>
+                <div>
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path
+                                d="M64 128a112 112 0 1 1 224 0 112 112 0 1 1 -224 0zM0 464c0-97.2 78.8-176 176-176s176 78.8 176 176l0 6c0 23.2-18.8 42-42 42L42 512c-23.2 0-42-18.8-42-42l0-6zM432 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zm0 240c79.5 0 144 64.5 144 144l0 22.4c0 23-18.6 41.6-41.6 41.6l-144.8 0c6.6-12.5 10.4-26.8 10.4-42l0-6c0-51.5-17.4-98.9-46.5-136.7 22.6-14.7 49.6-23.3 78.5-23.3z" />
+                        </svg>
+                        <h4>0</h4>
+                    </div>
+                    <p>Amizades</p>
+                </div>
+            </aside>
+
+            <div class="bnt-principal">
+                <a href="/pages/produtos/">Ir para as compras</a>
             </div>
         </div>
     </main>
@@ -174,6 +221,7 @@
         <p>Copyright © 2026 - Todos os direitos reservados.</p>
     </div>
     <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/pages/perfil.js"></script>
 </body>
 
 </html>

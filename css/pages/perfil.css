@@ -1,175 +1,336 @@
-.all-profile {
+.wrapper {
     display: flex;
-    gap: 20px;
-    margin: 30px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
-
-.profile {
+.container {
+    display: flex;
+    align-items: center;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    width: fit-content;
+    padding: 30px;
+    margin: 50px;
     background-color: var(--color-background);
-    padding: 10px;
-    border-radius: 20px;
+    flex-direction: column;
+    width: 500px;
+    z-index: 1;
+    border-radius: 40px;
 }
 
-.header-profile {
-    display: flex;
-    bottom: -1.5em;
-    left: 1.2em;
+.container::before {
+    content: "";
     position: absolute;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    font-weight: 600;
-    width: 80px;
-    height: 80px;
-    background-color: orange;
-    border-radius: 50%;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 26%;
+    border-radius: 30px;
+    background: linear-gradient(to right bottom, var(--color-primary), var(--color-primary-dark));
+    z-index: -1;
 }
 
-.profile-banner {
-    position: relative;
-    background-color: blue;
-    width: 230px;
-    height: 110px;
-    border-radius: 20px;
-}
-.profile-banner svg {
-    display: none;
-}
-.profile-body {
+.image {
     display: flex;
-    flex-direction: column;
-    width: 200px;
-    margin-top: 30px;
-    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 40px;
+    margin-top: 90px;
+    margin-left: 20px;
+    align-self: flex-start;
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 1px 2px 5px #b8b8b884
 }
-.profile-name {
-    font-size: 30px;
+.name {
+    align-self: flex-start;
+    font-family: 'Google Sans', sans-serif;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    margin: 20px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.pills, .pills-other{
+    background: #ebebeb;
+    color: rgb(32, 32, 32);
+    padding: 11px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: ease-in 0.15s;
+}
+
+.pills:hover {
+    background-color: #e4e4e4;
+    transform: translateY(-5px);
+}
+
+.pills:active {
+    transform: scale(0.96) translateY(-5px);
+}
+
+.avaliation {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 45px;
+}
+
+.icon {
+    display: flex;
     font-family: 'Ubuntu', sans-serif;
-}
-.profile-bio {
-    font-size: 14px;
-    font-weight: 100;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-
-.profile-menu {
-    display: flex;
-    flex-direction: column;
+    font-weight: 800;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    background-color: var(--color-background);
-    gap: 30px;
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px #0000001d;
+    margin-bottom: 10px;
 }
 
-.profile-menu a {
+.icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.divsioria {
+    width: 1.5px;
+    height: 90px;
+    background-color: #c2c2c2;
+}
+
+.bnt-principal{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    color: #000;
-    font-weight: 600;
-    box-shadow: 2px 2px 3px #0000001b;
-    transition: ease-in-out 0.1s;
-}
-
-.profile-menu a:hover {
-    transform: translateY(-2px);
-}
-
-.divisoria {
-    width: 100%;
-    height: 1px;
-    border-radius: 10px;
-    background-color: var(--color-border);
-}
-.profile-email {
-    font-weight: 300;
-    color: var(--color-text-muted);
-}
-
-.btn-profile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 30px;
     background-color: #000;
-    margin-top: 10px;
-    padding: 10px;
-    font-weight: 500;
-    border-radius: 20px;
-    transition: transform ease-in-out 0.14s;
+    padding: 20px;
+    width: 100%;
+    border-radius: 40px;
+    transition: ease-in-out 0.2s;
 }
-.btn-profile:hover {
+    
+.bnt-principal a {
+    color: white;
+    font-weight: 700;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 23px;
+}
+
+.bnt-principal:hover {
     transform: translateY(-2px);
 }
 
-@media (max-width: 1000px) {
-    .all-profile {
-        flex-direction: column;
-    }
-    .profile {
-        align-self: center;
-        flex-direction: row;
-        gap: 10px;
-    }
-    .profile-banner {
-        position: relative;
-        align-self: flex-start;
-    }
-    .profile-banner svg{
-        position: absolute;
-        display: flex;
-        top: 200%;
-        left: 50%;
-        fill: var(--color-border);
-        transform: translate(-50%, -50%);
-        width: 120px;
-        height: 120px;
-    }
+.config {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    width: 25px;
+    height: 25px;
+    fill: var(--color-background);
+    transition: ease-in-out 0.5s;
 }
 
-.links-content {
-    display: flex;
-    padding: 10px;
+.config:hover {
+    transform: rotate(180deg) scale(1.1);
+}
+
+.config:active {
+    transform: rotate(180deg) scale(0.97);
+}
+
+.blur {
+    display: none;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(3px);
+    z-index: 10;
+}
+
+/* Essa parte foi desenvolvida por ia, quero ir logo para o back-end, não ficar mudando a cor em css */
+.container-config {
+    display: none;
     flex-direction: column;
-    align-items: center;
-    background-color: var(--color-background);
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.103);
-    margin: 3px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    align-self: stretch;
-    border-radius: 20px;
-    gap: 10px;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    z-index: 70;
 }
 
-.perfil-link-total {
+/* Títulos Principais */
+.container-config h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 24px;
+    color: #111111;
+}
+
+.container-config p {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #666666;
+}
+
+/* Configuração Geral dos Formulários */
+.safezone, .dangerzone {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 20px;
+    border-radius: 12px;
 }
 
-input {
-    visibility: collapse
+.safezone h3, .dangerzone h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
 }
 
-.perfil-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-weight: 700;
-    background-color: orange;
-    height: 80px;
-    width: 80px;
+/* Labels e Inputs */
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: -4px;
+}
+
+input[type="text"], 
+input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fafafa;
+    transition: border-color 0.2s, background-color 0.2s;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, 
+input[type="file"]:focus {
+    border-color: #0066cc;
+    background-color: #ffffff;
+    outline: none;
+}
+
+/* Escondendo a classe input-hidden se necessário, 
+   mas deixando visível por padrão caso precise interagir */
+.input-hidden {
+    display: block; 
+}
+
+/* Links */
+a {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Estilização da Safezone (Perfil) --- */
+.safezone {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.safezone h3 {
+    color: #0066cc;
+}
+
+.safezone button[type="submit"] {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 8px;
+}
+
+.safezone button[type="submit"]:hover {
+    background-color: #0052a3;
+}
+
+/* --- Estilização da Dangerzone (Zona Perigosa) --- */
+.dangerzone {
+    background-color: #fff5f5;
+    border: 1px solid #fed7d7;
+    margin-bottom: 0; /* Remove a margem do último item */
+}
+
+.dangerzone h3 {
+    color: #e53e3e;
+}
+
+.dangerzone p {
+    margin-bottom: 4px;
+    color: #c53030;
+    font-weight: 500;
+}
+
+.dangerzone input[type="text"] {
+    border-color: #feb2b2;
+}
+
+.dangerzone input[type="text"]:focus {
+    border-color: #e53e3e;
+}
+
+.dangerzone button[type="submit"] {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 8px;
+}
+
+.dangerzone button[type="submit"]:hover {
+    background-color: #c53030;
+}
+
+/* Personalização da barra de rolagem interna (opcional) */
+.container-config::-webkit-scrollbar {
+    width: 6px;
+}
+.container-config::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 4px;
+}
+.container-config::-webkit-scrollbar-thumb:hover {
+    background: #aaaaaa;
 }
