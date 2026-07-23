@@ -13,7 +13,8 @@ formRegistro.addEventListener('submit', async function enviar_registro(event) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(Nformulario)
+            body: JSON.stringify(Nformulario),
+            credentials: 'include'
         })
 
         const dados = await resposta.json()
@@ -49,7 +50,8 @@ btn_reenviar.addEventListener('click', async function() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({'codigo': inp_reenviar.value, 'email': formulario.email})
+            body: JSON.stringify({'codigo': inp_reenviar.value, 'email': formulario.email}),
+            credentials: 'include'
         })
         const dados = await resposta.json()
 
@@ -58,6 +60,9 @@ btn_reenviar.addEventListener('click', async function() {
         } else {
             alert('Algo deu errado 500')
             console.error(dados['status'])
+        }
+        if (dados['codigo'] === '1') {
+            window.location.href = '/pages/perfil'
         }
     } catch (e) {
         console.error(e)
