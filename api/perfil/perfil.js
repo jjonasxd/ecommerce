@@ -7,7 +7,7 @@ safe_formulario.addEventListener('submit', async function enviar_safeformulario(
     o_formulario['danger'] = false
     
     try {
-        const resposta = await fetch('http://127.0.0.1:5000/api/perfil', {
+        const resposta = await fetch('http://127.0.0.1:5000/api/perfil-changes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -19,17 +19,30 @@ safe_formulario.addEventListener('submit', async function enviar_safeformulario(
     }
 })
 
+function pegar_cookie() {
+    const cookies = document.cookie.split(';')
+    const refresh = cookies[1].trim().split('=')
+
+    return refresh[1]
+}
+
 async function renovar_AccessToken() {
+    const csrf_refresh = pegar_cookie()
     try {
         const resposta = await fetch('http://127.0.0.1:5000/api/refresh', {
             method: 'POST',
-            credentials: 'include'
+            credentials: 'include',
+            headers: {
+                'X-CSRF-TOKEN': csrf_refresh
+            }
     })
+
     if (resposta.ok) {
+        const dados_token = await resposta.json()
+        const novo_access_token = dados_token.access_token;
+        
         return true
     }
-
-    return false
 
     } catch (erro) {
         console.error(erro)
@@ -54,11 +67,15 @@ async function pegar_dados_perfil() {
             } else {
                 console.warn('Seu refresh token inspirou voltando para a pagina de login')
                 window.location.href = '/pages/login'
+                return null;
             }
         } else {
             const dados = await resposta.json()
             console.log(dados)
         }
+
+        const access_token_novo = await resposta.json()
+        return access_token_novo
     }
     catch (erro) {
         console.log(erro)
