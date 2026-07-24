@@ -20,14 +20,23 @@ safe_formulario.addEventListener('submit', async function enviar_safeformulario(
 })
 
 function pegar_cookie() {
-    const cookies = document.cookie.split(';')
-    const refresh = cookies[1].trim().split('=')
+    try {
+        const cookies = document.cookie.split(';')
+        const refresh = cookies[1].trim().split('=')
 
-    return refresh[1]
+        return {"value": refresh[1], "erro": false}
+    } catch (erro) {
+        return {"value": null, "erro": true}
+    }
 }
 
 async function renovar_AccessToken() {
     const csrf_refresh = pegar_cookie()
+
+    if (csrf_refresh.erro) {
+        console.log('nenhum csrf cookie encontrado fazer login novamente')
+        window.location.href = '/pages/login'
+    }
     try {
         const resposta = await fetch('http://127.0.0.1:5000/api/refresh', {
             method: 'POST',
