@@ -16,20 +16,13 @@ formulario.addEventListener('submit', function(e) {
     })
 })
 
-async function testar_jwt() {
-    try {
-        const resposta = await fetch('http://127.0.0.1:5000/api/me', {
-            method: 'GET',
-            credentials: 'include'
-        })
-        if (resposta.ok) {
-            return true
-        }
-        return false
-    } catch (erro) {
-        console.error(erro)
-        return false
-    }
+function testar_cookies() {
+    const cookies = document.cookie
+    return cookies !== ""
+}
+
+if (testar_cookies()) {
+    window.location.href = '/pages/perfil'
 }
 
 formulario.addEventListener('submit', async function enviar_login(e) {
@@ -38,21 +31,21 @@ formulario.addEventListener('submit', async function enviar_login(e) {
     const rawdados = new FormData(formulario)
     const ob_form = Object.fromEntries(rawdados)
 
-    if (!testar_jwt()) {
-        window.location.href = '/pages/perfil'
-    } else {
-        const res = await fetch('http://127.0.0.1:5000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(ob_form)
-        })
-        const dados = await res.json()
-        if (dados.codigo == '7') {
+    ob_form.remember = formulario.querySelector('[name="remember"]').checked
+    console.log(ob_form)
+
+    const res = await fetch('http://127.0.0.1:5000/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(ob_form),
+        credentials: 'include'
+    })
+    const dados = await res.json()
+    if (dados.codigo == '1') {
             window.location.href = '/pages/perfil'
-        } else {
+    } else {
             alert(dados.details)
-        }
     }
 })

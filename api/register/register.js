@@ -7,6 +7,8 @@ formRegistro.addEventListener('submit', async function enviar_registro(event) {
     const rawdados = new FormData(formRegistro)
     const Nformulario = Object.fromEntries(rawdados)
 
+    Nformulario['remember'] = document.querySelector('input[name="remember"]').checked
+
     try {
         const resposta = await fetch('http://127.0.0.1:5000/api/registro', {
             method: 'POST',

@@ -1,18 +1,16 @@
 const safe_formulario = document.getElementById('safezone')
 const danger_formulario = document.getElementById('dangerzone')
 
-safe_formulario.addEventListener('submit', async function enviar_safeformulario() {
+safe_formulario.addEventListener('submit', async function enviar_safeformulario(e) {
+    e.preventDefault()
+
     const dados = new FormData(safe_formulario)
-    const o_formulario = Object.fromEntries(dados)
-    o_formulario['danger'] = false
+    dados.append('danger', false)
     
     try {
         const resposta = await fetch('http://127.0.0.1:5000/api/perfil-changes', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(o_formulario)
+            body: dados
         })
     } catch (e) {
         console.error('falha na requisição', e)
@@ -34,9 +32,9 @@ async function renovar_AccessToken() {
     const csrf_refresh = pegar_cookie()
 
     if (csrf_refresh.erro) {
-        console.log('nenhum csrf cookie encontrado fazer login novamente')
-        window.location.href = '/pages/login'
+        return null
     }
+
     try {
         const resposta = await fetch('http://127.0.0.1:5000/api/refresh', {
             method: 'POST',
@@ -74,9 +72,16 @@ async function pegar_dados_perfil() {
                 return await pegar_dados_perfil()
 
             } else {
-                console.warn('Seu refresh token inspirou voltando para a pagina de login')
-                window.location.href = '/pages/login'
-                return null;
+                console.warn('Seu refresh token inspirou/inexistente tentando session')
+                const session_dados = await fallback_de_perfil_dados()
+
+                if (session_dados == null) {
+                    console.warn('Sua session não foi encontrada voltando para a pagina de login')
+                    window.location.href = '/pages/login'
+                } else {
+                    imprimir_dados_no_perfil(session_dados)
+                    console.log(session_dados)
+                }
             }
         } else {
             const dados = await resposta.json()
@@ -91,3 +96,37 @@ async function pegar_dados_perfil() {
     }
 }
 pegar_dados_perfil()
+
+async function fallback_de_perfil_dados() {
+    const res_session = await fetch('http://127.0.0.1:5000/api/perfil-dados-session', {
+        method: 'GET',
+        credentials: 'include'
+    })
+
+    const dados = await res_session.json()
+    if (dados.codigo === "9") {
+        return null
+    } else {
+        return dados
+    }
+}
+
+const nome_completo = document.getElementById('nome_completo')
+const vendedor = document.getElementById('vendedor')
+const nivel = document.getElementById('nivel')
+const compras = document.getElementById('compras')
+const amizades = document.getElementById('amizades')
+
+function imprimir_dados_no_perfil(objeto) {
+    nome_completo.innerText = objeto.nome_completo
+
+    if (objeto.vendedor) {
+        vendedor.innerHTML = "Vendedor"
+    } else {
+        vendedor.innerHTML = "Comprador"
+    }
+
+    nivel.innerHTML = objeto.nivel
+    compras.innerHTML = objeto.nivel
+    amizades.innerHTML = null // ainda não fiz isso
+}
