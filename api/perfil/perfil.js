@@ -3,37 +3,49 @@ const danger_formulario = document.getElementById('dangerzone')
 
 safe_formulario.addEventListener('submit', async function enviar_safeformulario(e) {
     e.preventDefault()
+    let trava = true
 
     const dados = new FormData(safe_formulario)
     dados.append('danger', false)
     
     try {
         const resposta = await fetch('http://127.0.0.1:5000/api/perfil-changes', {
-            method: 'POST',
+            method: 'PUT',
+            credentials: 'include',
             body: dados
         })
+
+        if (resposta.status == 401 && trava) {
+            console.warn('tentatando renovar seu access cookie')
+            trava = false
+            const resp = await renovar_AccessToken()
+
+            if (resp) {
+                console.warn('renovado com sucesso')
+                return await enviar_safeformulario(e)
+            } else {
+                console.warn('seu token de acesso foi inspirado/deletado')
+                window.location.href = '/pages/login'
+            }
+        } 
+        if (resposta.ok) {
+            const resdados = await resposta.json()
+            console.log(resdados)
+        }
     } catch (e) {
         console.error('falha na requisição', e)
     }
 })
 
-function pegar_cookie() {
-    try {
-        const cookies = document.cookie.split(';')
-        const refresh = cookies[1].trim().split('=')
-
-        return {"value": refresh[1], "erro": false}
-    } catch (erro) {
-        return {"value": null, "erro": true}
-    }
+function pegar_cookie_por_nome(nome) {
+    const valor = `; ${document.cookie}`;
+    const partes = valor.split(`; ${nome}=`);
+    if (partes.length === 2) return partes.pop().split(';').shift();
+    return null;
 }
 
 async function renovar_AccessToken() {
-    const csrf_refresh = pegar_cookie()
-
-    if (csrf_refresh.erro) {
-        return null
-    }
+    const csrf_refresh = pegar_cookie_por_nome('csrf_refresh_token')
 
     try {
         const resposta = await fetch('http://127.0.0.1:5000/api/refresh', {
@@ -70,46 +82,21 @@ async function pegar_dados_perfil() {
             if (resposta_token) {
                 console.log('Token renovado com sucesso')
                 return await pegar_dados_perfil()
-
             } else {
-                console.warn('Seu refresh token inspirou/inexistente tentando session')
-                const session_dados = await fallback_de_perfil_dados()
-
-                if (session_dados == null) {
-                    console.warn('Sua session não foi encontrada voltando para a pagina de login')
-                    window.location.href = '/pages/login'
-                } else {
-                    imprimir_dados_no_perfil(session_dados)
-                    console.log(session_dados)
-                }
+                console.warn('Seu refresh token inspirou/inexistente')
+                window.location.href = '/pages/login'
             }
         } else {
             const dados = await resposta.json()
             console.log(dados)
+            imprimir_dados_no_perfil(dados)
         }
-
-        const access_token_novo = await resposta.json()
-        return access_token_novo
     }
     catch (erro) {
         console.log(erro)
     }
 }
 pegar_dados_perfil()
-
-async function fallback_de_perfil_dados() {
-    const res_session = await fetch('http://127.0.0.1:5000/api/perfil-dados-session', {
-        method: 'GET',
-        credentials: 'include'
-    })
-
-    const dados = await res_session.json()
-    if (dados.codigo === "9") {
-        return null
-    } else {
-        return dados
-    }
-}
 
 const nome_completo = document.getElementById('nome_completo')
 const vendedor = document.getElementById('vendedor')
@@ -126,7 +113,7 @@ function imprimir_dados_no_perfil(objeto) {
         vendedor.innerHTML = "Comprador"
     }
 
-    nivel.innerHTML = objeto.nivel
-    compras.innerHTML = objeto.nivel
-    amizades.innerHTML = null // ainda não fiz isso
+    nivel.innerHTML = objeto.nivel || 0
+    compras.innerHTML = objeto.nivel || 0
+    amizades.innerHTML = null || 0// ainda não fiz isso
 }

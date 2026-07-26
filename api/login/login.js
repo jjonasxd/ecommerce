@@ -16,12 +16,7 @@ formulario.addEventListener('submit', function(e) {
     })
 })
 
-function testar_cookies() {
-    const cookies = document.cookie
-    return cookies !== ""
-}
-
-if (testar_cookies()) {
+if (!navigator.cookieEnabled) {
     window.location.href = '/pages/perfil'
 }
 
