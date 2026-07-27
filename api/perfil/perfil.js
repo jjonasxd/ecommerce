@@ -7,10 +7,15 @@ safe_formulario.addEventListener('submit', async function enviar_safeformulario(
 
     const dados = new FormData(safe_formulario)
     dados.append('danger', false)
+    const csrf_refresh = pegar_cookie_por_nome('csrf_refresh_token')
     
     try {
         const resposta = await fetch('http://127.0.0.1:5000/api/perfil-changes', {
             method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrf_refresh
+            },
             credentials: 'include',
             body: dados
         })
