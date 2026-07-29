@@ -3,26 +3,23 @@ const danger_formulario = document.getElementById('dangerzone')
 
 safe_formulario.addEventListener('submit', async function enviar_safeformulario(e) {
     e.preventDefault()
-    let trava = true
 
     const dados = new FormData(safe_formulario)
     dados.append('danger', false)
-    const csrf_refresh = pegar_cookie_por_nome('csrf_refresh_token')
+    const csrf_access = pegar_cookie_por_nome('csrf_access_token')
     
     try {
         const resposta = await fetch('http://127.0.0.1:5000/api/perfil-changes', {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': csrf_refresh
+                'X-CSRF-TOKEN': csrf_access
             },
             credentials: 'include',
             body: dados
         })
 
-        if (resposta.status == 401 && trava) {
+        if (resposta.status == 401) {
             console.warn('tentatando renovar seu access cookie')
-            trava = false
             const resp = await renovar_AccessToken()
 
             if (resp) {
@@ -42,7 +39,7 @@ safe_formulario.addEventListener('submit', async function enviar_safeformulario(
     }
 })
 
-function pegar_cookie_por_nome(nome) {
+function pegar_cookie_por_nome(nome) { // essa função foi feita por ia :(
     const valor = `; ${document.cookie}`;
     const partes = valor.split(`; ${nome}=`);
     if (partes.length === 2) return partes.pop().split(';').shift();
@@ -108,6 +105,7 @@ const vendedor = document.getElementById('vendedor')
 const nivel = document.getElementById('nivel')
 const compras = document.getElementById('compras')
 const amizades = document.getElementById('amizades')
+const foto_de_perfil = document.getElementById('foto-de-perfil')
 
 function imprimir_dados_no_perfil(objeto) {
     nome_completo.innerText = objeto.nome_completo
@@ -117,6 +115,18 @@ function imprimir_dados_no_perfil(objeto) {
     } else {
         vendedor.innerHTML = "Comprador"
     }
+    const a_nome = objeto.nome_completo.split(' ')
+    let abreviacao
+
+    if (a_nome.length == 1) {
+        console.log('aqui')
+        abreviacao = a_nome[0].slice(0, 1)
+    } else {
+        console.log('oi')
+        abreviacao = a_nome[0].slice(0, 1) + a_nome[1].slice(0, 1)
+    }
+    foto_de_perfil.alt = abreviacao.toUpperCase()
+    foto_de_perfil.src = objeto.avatar_url
 
     nivel.innerHTML = objeto.nivel || 0
     compras.innerHTML = objeto.nivel || 0

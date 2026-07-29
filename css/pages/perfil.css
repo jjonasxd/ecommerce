@@ -17,8 +17,7 @@
     border-radius: 40px;
 }
 
-.container::before {
-    content: "";
+.banner {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -29,14 +28,14 @@
     z-index: -1;
 }
 
-.image {
+.image img {
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     font-size: 40px;
     margin-top: 90px;
-    margin-left: 20px;
+    margin-left: -200px;
     align-self: flex-start;
     height: 100px;
     width: 100px;
@@ -45,6 +44,7 @@
     border-radius: 50%;
     box-shadow: 1px 2px 5px #b8b8b884
 }
+
 .name {
     align-self: flex-start;
     font-family: 'Google Sans', sans-serif;
