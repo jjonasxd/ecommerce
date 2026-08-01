@@ -31,7 +31,7 @@
 ## 🌐 Ver previa
 > ⚠️ **Atenção** essa preview apenas envolve a parte visual da aplicação(UI), a logica ainda não foi totalmente desenvolvida.
 
-🔗 [**Acessar E-commerce**](https://jjonasxd.github.io/ecommerce/)
+🔗 [**Acessar E-commerce**](https://jjonasxd-ecommerce-preview.vercel.app/)
 
 ---
 ## ⚙️ Como executar o projeto
