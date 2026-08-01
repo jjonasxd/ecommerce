@@ -44,3 +44,5 @@ $ cd ecommerce
 
 # Abra o arquivo index.html
 ```
+## 📁 Veja também!
+🔗 [**E-commerce Backend**](https://github.com/jjonasxd/ecommerce-backend)
