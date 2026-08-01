@@ -137,6 +137,8 @@ footer h4 {
     .btn-buttons a {
         width: 100%;
     }
+}
+@media screen and (max-width: 980px) {
     footer {
         display: grid;
         grid-template-columns: 1fr 1fr;

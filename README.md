@@ -1,35 +1,46 @@
-# 🛒 E-Commerce Project
+# ![](assets/img/icon.svg) E-commerce Project
+> Um projeto full-stack experimetal de um e-commerce visando em construir uma interface limpa e agradavel (UIX)
 
-Este é um projeto de e-commerce simplificado desenvolvido com o objetivo principal de testar e consolidar minhas habilidades em desenvolvimento web full-stack, abrangendo desde a estruturação e estilização do front-end até a lógica de rotas e persistência básica no back-end.
+![Status do Projeto](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
+![License](https://img.shields.io/badge/Licen%C3%A7a-MIT-blue)
+---
 
-O projeto consiste em uma aplicação de poucas páginas onde o usuário pode navegar por produtos, gerenciar um carrinho de compras, simular a finalização de um pedido e realizar uma autenticação simples.
+## 💻 Front-end Overview
+
+![Demonstração do Projeto](/assets/img/front-page.png)
 
 ---
 
-## 🚀 Funcionalidades
+## 🛠️ Front-end Tecnologias Utilizadas
 
-- **Autenticação Simples:** Tela de login para acesso à conta do usuário.
-- **Catálogo de Produtos:** Visualização de itens disponíveis com preços e detalhes básicos.
-- **Carrinho de Compras Interativo:** Adição, remoção e atualização da quantidade de produtos em tempo real.
-- **Simulação de Checkout:** Fluxo mockado para finalização da compra de forma demonstrativa.
+* **HTML5 / CSS3**
+* **JavaScript (ES6+)**
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## ✨ Funcionalidades
 
-### Front-end
-- **HTML5:** Estruturação semântica das páginas.
-- **CSS3:** Estilização responsiva e design moderno da interface.
-- **JavaScript (Vanilla):** Manipulação do DOM, gerenciamento de estado do carrinho (LocalStorage) e requisições assíncronas.
-
-### Back-end
-- **Flask (Python):** Framework minimalista para criação das APIs, rotas de autenticação e processamento básico dos dados.
-
-### Ferramentas & Hospedagem
-- **Git & GitHub:** Controle de versão e versionamento do código-fonte.
-- **Vercel:** Hospedagem da aplicação para visualização online.
+- [x] Cadastro de usuários
+- [x] Autenticação via JWT
+- [ ] Perfil interativo (*Desenvolvimento*)
+- [ ] Cadastro de produtos (*Desenvolvimento*)
+- [ ] Carrinho (*Desenvolvimento*)
 
 ---
 
-## 📂 Estrutura do Projeto
-none
+## 🌐 Ver previa
+> ⚠️ **Atenção** essa preview apenas envolve a parte visual da aplicação(UI), a logica ainda não foi totalmente desenvolvida.
+
+🔗 [**Acessar E-commerce**](https://jjonasxd.github.io/ecommerce/)
+
+---
+## ⚙️ Como executar o projeto
+```bash
+# Clone esse repositorio
+$ git clone https://github.com/jjonasxd/ecommerce.git
+
+# Acesse a pasta
+$ cd ecommerce
+
+# Abra o arquivo index.html
+```

@@ -1,21 +1,5 @@
 const formulario = document.getElementById('form-login')
 
-formulario.addEventListener('submit', function(e) {
-    e.preventDefault()
-
-    const rawdados = new FormData(formulario)
-    const dados = Object.fromEntries(rawdados)
-
-    fetch('http://127.0.0.1:5000/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dados),
-        credentials: 'include'
-    })
-})
-
 if (!navigator.cookieEnabled) {
     window.location.href = '/pages/perfil'
 }
@@ -38,6 +22,7 @@ formulario.addEventListener('submit', async function enviar_login(e) {
         credentials: 'include'
     })
     const dados = await res.json()
+    console.log(dados)
     if (dados.codigo == '1') {
             window.location.href = '/pages/perfil'
     } else {
