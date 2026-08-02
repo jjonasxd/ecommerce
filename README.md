@@ -22,10 +22,10 @@
 
 - [x] Cadastro de usuários
 - [x] Autenticação via JWT
-- [ ] Perfil interativo (*Desenvolvimento*)
+- [x] Perfil interativo
+- [ ] Rotas dinamicas de produtos (*Desenvolvimento*)
 - [ ] Cadastro de produtos (*Desenvolvimento*)
 - [ ] Carrinho (*Desenvolvimento*)
-
 ---
 
 ## 🌐 Ver previa
@@ -44,5 +44,62 @@ $ cd ecommerce
 
 # Abra o arquivo index.html
 ```
+## Estrutura do projeto
+```
+/
+├── api
+│   ├── login
+│   │   └── login.js
+│   ├── perfil
+│   │   └── perfil.js
+│   └── register
+│       └── register.js
+├── assets
+│   └── img
+│       ├── config.png
+│       ├── front-page.png
+│       ├── icon.svg
+│       ├── koda&mia.jpeg
+│       └── login_banner.png
+├── css
+│   ├── base.css
+│   ├── components.css
+│   ├── layout.css
+│   ├── main.css
+│   ├── pages
+│   │   ├── login.css
+│   │   ├── perfil.css
+│   │   ├── produtos.css
+│   │   └── register.css
+│   └── variables.css
+├── data
+│   └── produtos.json
+├── js
+│   ├── components
+│   │   ├── buy-me-coffe.js
+│   │   └── menu.js
+│   ├── main.js
+│   └── pages
+│       ├── perfil.js
+│       └── produtos.js
+├── pages
+│   ├── carrinho
+│   │   └── index.html
+│   ├── login
+│   │   └── index.html
+│   ├── perfil
+│   │   └── index.html
+│   ├── produtos
+│   │   └── index.html
+│   └── registrar
+│       └── index.html
+├── .nojekyll
+├── favicon.svg
+├── index.html
+├── .gitignore
+├── README.md
+└── template.html
+```
+
 ## 📁 Veja também!
 🔗 [**E-commerce Backend**](https://github.com/jjonasxd/ecommerce-backend)

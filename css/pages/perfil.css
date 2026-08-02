@@ -185,7 +185,9 @@
     font-size: 24px;
     color: #111111;
 }
-
+.container-config a {
+    color: #0066cc
+}
 .container-config p {
     margin-top: 0;
     margin-bottom: 24px;
@@ -239,15 +241,6 @@ input[type="file"]:focus {
    mas deixando visível por padrão caso precise interagir */
 .input-hidden {
     display: block; 
-}
-
-/* Links */
-a {
-    color: #0066cc;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    align-self: flex-start;
 }
 
 a:hover {

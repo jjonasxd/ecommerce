@@ -1,14 +1,18 @@
 [
     {
         "id": "0",
-        "name": "batedeira eletrica",
-        "img": "https://m.media-amazon.com/images/I/41fw5SAXt-L._AC_US100_.jpg",
-        "price": "79,90"
+        "nome": "batedeira eletrica",
+        "descricao": "Batedeira eletrica super em conta",
+        "imagem": "https://m.media-amazon.com/images/I/41fw5SAXt-L._AC_US100_.jpg",
+        "preco": "79,90",
+        "marca": "Tramontina"
     },
     {
         "id": "1",
-        "name": "ventilador",
-        "img": "https://m.media-amazon.com/images/I/41Ye1x-V5iL._AC_US100_.jpg",
-        "price": "105,32"
+        "nome": "ventilador",
+        "descricao": "Ventilador super util com uma descricao maravilhosa",
+        "imagem": "https://m.media-amazon.com/images/I/41Ye1x-V5iL._AC_US100_.jpg",
+        "preco": "105,32",
+        "marca": "Mondial"
     }
 ]

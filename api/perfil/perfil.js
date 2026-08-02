@@ -7,15 +7,19 @@ safe_formulario.addEventListener('submit', async function enviar_safeformulario(
     const dados = new FormData(safe_formulario)
     dados.append('danger', false)
     const csrf_access = pegar_cookie_por_nome('csrf_access_token')
-    
+
+    const formData = new FormData()
+    formData.append('foto', dados.get('foto'))
+
+    const Odados = Object.fromEntries(dados)
     try {
-        const resposta = await fetch('http://127.0.0.1:5000/api/perfil-changes', {
+        const resposta = await fetch('http://127.0.0.1:5000/api/perfil-avatar', {
             method: 'PUT',
             headers: {
                 'X-CSRF-TOKEN': csrf_access
             },
             credentials: 'include',
-            body: dados
+            body: formData
         })
 
         if (resposta.status == 401) {
@@ -29,13 +33,41 @@ safe_formulario.addEventListener('submit', async function enviar_safeformulario(
                 console.warn('seu token de acesso foi inspirado/deletado')
                 window.location.href = '/pages/login'
             }
-        } 
+        }
+        const resdados = await resposta.json()
+        console.log(resdados)
         if (resposta.ok) {
-            const resdados = await resposta.json()
             console.log(resdados)
         }
     } catch (e) {
         console.error('falha na requisição', e)
+    }
+    try {
+        const resposta = await fetch('http://127.0.0.1:5000/api/perfil-changes', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': csrf_access,
+                'Content-Type': 'application/json'
+            },
+            credentials: "include",
+            body: JSON.stringify(Odados)
+        })
+        if (resposta.status == 401) {
+            console.warn('tentatando renovar seu access cookie')
+            const resp = await renovar_AccessToken()
+
+            if (resp) {
+                console.warn('renovado com sucesso')
+                return await enviar_safeformulario(e)
+            } else {
+                console.warn('seu token de acesso foi inspirado/deletado')
+                window.location.href = '/pages/login'
+            }
+        }
+        const novosdados = await resposta.json()
+        console.log(novosdados)
+    } catch (e) {
+        console.error(e)
     }
 })
 
@@ -106,6 +138,7 @@ const nivel = document.getElementById('nivel')
 const compras = document.getElementById('compras')
 const amizades = document.getElementById('amizades')
 const foto_de_perfil = document.getElementById('foto-de-perfil')
+const bio = document.getElementById('bio')
 
 function imprimir_dados_no_perfil(objeto) {
     nome_completo.innerText = objeto.nome_completo
@@ -127,8 +160,31 @@ function imprimir_dados_no_perfil(objeto) {
     }
     foto_de_perfil.alt = abreviacao.toUpperCase()
     foto_de_perfil.src = objeto.avatar_url
-
+    
     nivel.innerHTML = objeto.nivel || 0
     compras.innerHTML = objeto.nivel || 0
     amizades.innerHTML = null || 0// ainda não fiz isso
+
+    bio.innerHTML = objeto.bio
 }
+
+danger_formulario.addEventListener('submit', async function deletar_conta(e) {
+    e.preventDefault()
+
+    const form = new FormData(danger_formulario)
+    const texto = form.get('excluir-conta')
+    if (texto === 'EXCLUIR MINHA CONTA') {
+        try {
+            const resposta = await fetch(`http://127.0.0.1:5000/api/exluir-conta`, { // eu sei que era melhor ter usado o methodo DELETE, porem eu não enviei nenhuma session/cookie sem ser http only para o front ent vai por get mesmo
+                method: 'GET',
+                credentials: 'include'
+            })
+            const dados = await resposta.json()
+            console.log(dados)
+        } catch (e) {
+            console.error(e)
+        }
+    } else {
+        alert('Digite novamente')
+    }
+})
