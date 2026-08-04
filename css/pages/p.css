@@ -1,0 +1,107 @@
+/* Tava com preguiça de fazer isso (Ou seja usei ia), depois eu refaço apenas para dar continuidade */
+.container-compra {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: fit-content;
+  max-width: 650px;
+  padding: 20px; /* Padding uniforme em volta */
+  margin: 50px auto; /* Centraliza o card na página */
+  border-radius: 20px;
+  background-color: var(--color-background, #ffffff);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito ao passar o mouse no card */
+.container-compra:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Área da Imagem */
+.imagem {
+  position: relative;
+  flex-shrink: 0; /* Impede a imagem de espremer */
+}
+
+.imagem img {
+  border-radius: 15px;
+  width: 230px;
+  height: 350px;
+  object-fit: cover; /* Evita que a imagem fique distorcida */
+  display: block;
+}
+
+/* Badge da Marca sobre a imagem */
+.imagem .marca {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para dar leitura */
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px); /* Efeito translúcido moderno */
+}
+
+/* Área de Informações */
+.detalhes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-right: 15px;
+  gap: 20px;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.descricao {
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.5;
+}
+
+/* Área de Preço e Botão */
+.compra-acao {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.preco {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #2b2b2b;
+}
+
+.btn-comprar {
+  background-color: #000;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-comprar:hover {
+  background-color: #000;
+}
+
+.btn-comprar:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar | E-commerce</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/pages/login.css">
+    <link rel="stylesheet" href="/css/pages/p.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <svg class="logo-icon" viewBox="0 0 610 512" aria-hidden="true">
+                    <path fill="currentColor"
+                        d="M560.3 237.2c10.4 11.8 28.3 14.4 41.8 5.5 14.7-9.8 18.7-29.7 8.9-44.4l-48-72c-2.8-4.2-6.6-7.7-11.1-10.2L351.4 4.7c-19.3-10.7-42.8-10.7-62.2 0L88.8 116c-5.4 3-9.7 7.4-12.6 12.8L27.7 218.7c-12.6 23.4-3.8 52.5 19.6 65.1l33 17.7 0 53.3c0 23 12.4 44.3 32.4 55.7l176 99.7c19.6 11.1 43.5 11.1 63.1 0l176-99.7c20.1-11.4 32.4-32.6 32.4-55.7l0-117.5zm-240-9.8L170.2 144 320.3 60.6 470.4 144 320.3 227.4zm-41.5 50.2l-21.3 46.2-165.8-88.8 25.4-47.2 161.7 89.8z">
+                    </path>
+                </svg>
+            </a>
+            <p>Ecommerce</p>
+        </div>
+        <div class="btn-menu">
+            <button id="menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                    <path
+                        d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+                        fill="white" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <article class="container-compra">
+        <div class="imagem">
+            <span class="marca">Marca</span>
+            <img src="/assets/img/login_banner.png" alt="Banner do produto">
+        </div>
+
+        <div class="detalhes">
+            <div class="info-principal">
+                <h1 class="titulo">Título do Produto</h1>
+                <p class="descricao">Descrição curta do produto explicando os detalhes principais de forma clara.</p>
+            </div>
+
+            <div class="compra-acao">
+                <span class="preco">R$ 199,90</span>
+                <button type="button" class="btn-comprar">Comprar</button>
+            </div>
+        </div>
+    </article>
+
+    <nav class="menu">
+        <div class="menu-content">
+            <a href="/">Home</a>
+            <div class="divd"></div>
+            <a href="/pages/produtos/">Produtos</a>
+            <div class="divd"></div>
+            <a href="/pages/carrinho/">Carrinho</a>
+            <div class="divd"></div>
+            <a href="/pages/perfil/">Perfil</a>
+            <div class="divd"></div>
+            <a href="/pages/login/">Login</a>
+        </div>
+    </nav>
+    <div class="menu-blur" id="menu-blur"></div>
+
+    <footer>
+        <div class="footer-about">
+            <h4>Ecommerce</h4>
+            <p>Nosso ecommerce</p>
+        </div>
+
+        <nav class="footer-nav">
+            <h4>Navegação</h4>
+            <a href="/">Home</a>
+            <a href="/pages/produtos">Produtos</a>
+            <a href="/pages/carrinho">Carrinho</a>
+            <a href="/pages/login">Login</a>
+        </nav>
+
+        <nav class="footer-contact">
+            <h4>New York, NY 10012, US</h4>
+            <p>ecommerce@contact.com</p>
+            <p>+ 01 234 578 18</p>
+            <p>+ 01 234 671 83</p>
+        </nav>
+
+        <nav class="footer-social">
+            <h4>Follow us</h4>
+            <a href="#">Youtube</a>
+            <a href="#">Instagram</a>
+            <a href="#">Faceboot</a>
+            <a href="#">Tiktok</a>
+        </nav>
+    </footer>
+    <div class="direitos">
+        <p>Copyright © 2026 - Todos os direitos reservados.</p>
+    </div>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/api/register/register.js"></script>
+</body>
+
+</html>

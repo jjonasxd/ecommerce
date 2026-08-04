@@ -95,3 +95,26 @@
         height: 420px;
     }
 }
+
+.carregar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carregar button {
+    margin: 30px;
+    padding: 15px;
+    background-color: black;
+    font-size: 15px;
+    font-weight: 800;
+    width: 300px;
+    border-radius: 25px;
+    color: white;
+    transition: ease-in-out 0.2s;
+}
+.carregar button:hover {
+    transform: translateY(-2px);
+}
+.carregar button:active {
+    transform: translateY(-1px);
+}

@@ -52,8 +52,11 @@ $ cd ecommerce
 │   │   └── login.js
 │   ├── perfil
 │   │   └── perfil.js
-│   └── register
-│       └── register.js
+│   ├── register
+│   │    └── register.js
+│   └── produtos
+│       ├── favorito.js
+│       └── produto.js
 ├── assets
 │   └── img
 │       ├── config.png
@@ -68,6 +71,7 @@ $ cd ecommerce
 │   ├── main.css
 │   ├── pages
 │   │   ├── login.css
+│   │   ├── p.css
 │   │   ├── perfil.css
 │   │   ├── produtos.css
 │   │   └── register.css
@@ -86,6 +90,8 @@ $ cd ecommerce
 │   ├── carrinho
 │   │   └── index.html
 │   ├── login
+│   │   └── index.html
+│   ├── p
 │   │   └── index.html
 │   ├── perfil
 │   │   └── index.html
